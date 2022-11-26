@@ -121,6 +121,7 @@ wordpress_docker_labels_custom:
   traefik.http.routers.wordpress-http.rule: "Host(`{{ user.domain }}`)"
   traefik.http.routers.wordpress.entrypoints: websecure
   traefik.http.routers.wordpress.rule: "Host(`{{ user.domain }}`)"
+  traefik.http.routers.wordpress.middlewares: wordpress
   traefik.http.middlewares.wordpress.headers.framedeny: "true"
   traefik.http.middlewares.wordpress.headers.browserxssfilter: "true"
   traefik.http.middlewares.wordpress.headers.accesscontrolallowmethods: "GET,OPTIONS,PUT"
