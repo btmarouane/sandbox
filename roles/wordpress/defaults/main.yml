@@ -121,12 +121,12 @@ wordpress_docker_labels_custom:
   traefik.http.routers.wordpress-http.rule: "Host(`{{ user.domain }}`)"
   traefik.http.routers.wordpress.entrypoints: websecure
   traefik.http.routers.wordpress.rule: "Host(`{{ user.domain }}`)"
-  traefik.http.middlewares.testHeader.headers.framedeny: true
-  traefik.http.middlewares.testHeader.headers.browserxssfilter: true
-  traefik.http.middlewares.testheader.headers.accesscontrolallowmethods: GET,OPTIONS,PUT
+  traefik.http.middlewares.testHeader.headers.framedeny: "true"
+  traefik.http.middlewares.testHeader.headers.browserxssfilter: "true"
+  traefik.http.middlewares.testheader.headers.accesscontrolallowmethods: "GET,OPTIONS,PUT"
   traefik.http.middlewares.testheader.headers.accesscontrolalloworiginlist: "{{ 'https://' + user.domain }}"
   traefik.http.middlewares.testheader.headers.accesscontrolmaxage: 100
-  traefik.http.middlewares.testheader.headers.addvaryheader: true
+  traefik.http.middlewares.testheader.headers.addvaryheader: "true"
 wordpress_docker_labels: "{{ docker_labels_common
                              | combine(wordpress_docker_labels_default)
                              | combine(wordpress_docker_labels_custom) }}"
