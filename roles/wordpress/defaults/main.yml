@@ -37,9 +37,16 @@ wordpress_web_url: "{{ 'https://' + wordpress_web_subdomain + '.' + wordpress_we
 # DNS
 ################################
 
+wordpress_dns_enabled: false
 wordpress_dns_record: "{{ wordpress_web_subdomain }}"
 wordpress_dns_zone: "{{ wordpress_web_domain }}"
 wordpress_dns_proxy: "{{ dns.proxied }}"
+
+################################
+# Mariadb
+################################
+
+mariadb_db_name: wordpress_invoice_db
 
 ################################
 # Traefik
@@ -76,7 +83,7 @@ wordpress_docker_envs_default:
   WORDPRESS_DB_HOST: "mariadb:3306"
   WORDPRESS_DB_USER: "root"
   WORDPRESS_DB_PASSWORD: "password321"
-  WORDPRESS_DB_NAME: "{{ wordpress_name }}"
+  WORDPRESS_DB_NAME: "{{ mariadb_db_name }}"
 wordpress_docker_envs_custom: {}
 wordpress_docker_envs: "{{ wordpress_docker_envs_default
                            | combine(wordpress_docker_envs_custom) }}"
@@ -109,13 +116,37 @@ wordpress_docker_hosts: "{{ docker_hosts_common
 
 # Labels
 wordpress_docker_labels_default: {}
-wordpress_docker_labels_custom: {}
+wordpress_docker_labels_custom:
+  traefik.http.routers.wordpress-http.entrypoints: web
+  traefik.http.routers.wordpress-http.rule: "Host(`{{ user.domain }}`)"
+  traefik.http.routers.wordpress.entrypoints: websecure
+  traefik.http.routers.wordpress.rule: "Host(`{{ user.domain }}`)"
+  traefik.http.middlewares.wordpress-secured.headers.accesscontrolallowmethods: "GET,OPTIONS,PUT"
+  traefik.http.middlewares.wordpress-secured.headers.accesscontrolmaxage: "100"
+  traefik.http.middlewares.wordpress-secured.headers.addvaryheader: "true"
+  traefik.http.middlewares.wordpress-secured.headers.hostsproxyheaders: "X-Forwarded-Host"
+  traefik.http.middlewares.wordpress-secured.headers.sslredirect: "true"
+  traefik.http.middlewares.wordpress-secured.headers.sslproxyheaders.X-Forwarded-Proto: "https"
+  traefik.http.middlewares.wordpress-secured.headers.stsseconds: "63072000"
+  traefik.http.middlewares.wordpress-secured.headers.stsincludesubdomains: "true"
+  traefik.http.middlewares.wordpress-secured.headers.stspreload: "true"
+  traefik.http.middlewares.wordpress-secured.headers.forcestsheader: "true"
+  traefik.http.middlewares.wordpress-secured.headers.framedeny: "true"
+  traefik.http.middlewares.wordpress-secured.headers.contenttypenosniff: "true"
+  traefik.http.middlewares.wordpress-secured.headers.browserxssfilter: "true"
+  traefik.http.middlewares.wordpress-secured.headers.referrerpolicy: "same-origin"
+  traefik.http.middlewares.wordpress-secured.headers.featurepolicy: "camera 'none'; geolocation 'none'; microphone 'none'; payment 'none'; usb 'none'; vr 'none';"
+  traefik.http.middlewares.wordpress-secured.headers.customresponseheaders.X-Robots-Tag: "none,noarchive,nosnippet,notranslate,noimageindex"
+  traefik.http.middlewares.wordpress-secured.headers.accesscontrolalloworiginlist: "{{ 'https://' + user.domain }}"
+  traefik.http.middlewares.wordpress-secured.headers.contentsecuritypolicy: "script-src 'self'"
+  traefik.http.routers.wordpress.middlewares: "{{ wordpress_traefik_middleware + ',wordpress-secured' }}"
+
 wordpress_docker_labels: "{{ docker_labels_common
                              | combine(wordpress_docker_labels_default)
                              | combine(wordpress_docker_labels_custom) }}"
 
 # Hostname
-wordpress_docker_hostname: "{{ wordpress_name }}"
+wordpress_docker_hostname: "{{ wordpress_web_subdomain + '.' + wordpress_web_domain }}"
 
 # Networks
 wordpress_docker_networks_alias: "{{ wordpress_name }}"
