@@ -138,6 +138,7 @@ wordpress_docker_labels_custom:
   traefik.http.middlewares.wordpress-secured.headers.featurepolicy: "camera 'none'; geolocation 'none'; microphone 'none'; payment 'none'; usb 'none'; vr 'none';"
   traefik.http.middlewares.wordpress-secured.headers.customresponseheaders.X-Robots-Tag: "none,noarchive,nosnippet,notranslate,noimageindex"
   traefik.http.middlewares.wordpress-secured.headers.accesscontrolalloworiginlist: "{{ 'https://' + user.domain }}"
+  traefik.http.middlewares.wordpress-secured.headers.contentsecuritypolicy: "script-src 'self'"
   traefik.http.routers.wordpress.middlewares: "{{ wordpress_traefik_middleware + ',wordpress-secured' }}"
 
 wordpress_docker_labels: "{{ docker_labels_common
