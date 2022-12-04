@@ -26,10 +26,10 @@ wordpress_paths_folders_list:
 # Web
 ################################
 
-wordpress_web_subdomain: "{{ wordpress_name }}"
+wordpress_web_subdomain: ""
 wordpress_web_domain: "{{ user.domain }}"
 wordpress_web_port: "80"
-wordpress_web_url: "{{ 'https://' + wordpress_web_subdomain + '.' + wordpress_web_domain
+wordpress_web_url: "{{ 'https://' + wordpress_web_domain
                     if (reverse_proxy_is_enabled)
                     else 'http://localhost:' + wordpress_web_port }}"
 
@@ -116,30 +116,7 @@ wordpress_docker_hosts: "{{ docker_hosts_common
 
 # Labels
 wordpress_docker_labels_default: {}
-wordpress_docker_labels_custom:
-  traefik.http.routers.wordpress-http.entrypoints: web
-  traefik.http.routers.wordpress-http.rule: "Host(`{{ user.domain }}`)"
-  traefik.http.routers.wordpress.entrypoints: websecure
-  traefik.http.routers.wordpress.rule: "Host(`{{ user.domain }}`)"
-  traefik.http.middlewares.wordpress-secured.headers.accesscontrolallowmethods: "GET,OPTIONS,PUT"
-  traefik.http.middlewares.wordpress-secured.headers.accesscontrolmaxage: "100"
-  traefik.http.middlewares.wordpress-secured.headers.addvaryheader: "true"
-  traefik.http.middlewares.wordpress-secured.headers.hostsproxyheaders: "X-Forwarded-Host"
-  traefik.http.middlewares.wordpress-secured.headers.sslredirect: "true"
-  traefik.http.middlewares.wordpress-secured.headers.sslproxyheaders.X-Forwarded-Proto: "https"
-  traefik.http.middlewares.wordpress-secured.headers.stsseconds: "63072000"
-  traefik.http.middlewares.wordpress-secured.headers.stsincludesubdomains: "true"
-  traefik.http.middlewares.wordpress-secured.headers.stspreload: "true"
-  traefik.http.middlewares.wordpress-secured.headers.forcestsheader: "true"
-  traefik.http.middlewares.wordpress-secured.headers.framedeny: "true"
-  traefik.http.middlewares.wordpress-secured.headers.contenttypenosniff: "true"
-  traefik.http.middlewares.wordpress-secured.headers.browserxssfilter: "true"
-  traefik.http.middlewares.wordpress-secured.headers.referrerpolicy: "same-origin"
-  traefik.http.middlewares.wordpress-secured.headers.featurepolicy: "camera 'none'; geolocation 'none'; microphone 'none'; payment 'none'; usb 'none'; vr 'none';"
-  traefik.http.middlewares.wordpress-secured.headers.customresponseheaders.X-Robots-Tag: "none,noarchive,nosnippet,notranslate,noimageindex"
-  traefik.http.middlewares.wordpress-secured.headers.accesscontrolalloworiginlist: "{{ 'https://' + user.domain }}"
-  traefik.http.middlewares.wordpress-secured.headers.contentsecuritypolicy: "script-src 'self'"
-  traefik.http.routers.wordpress.middlewares: "{{ wordpress_traefik_middleware + ',wordpress-secured' }}"
+wordpress_docker_labels_custom: {}
 
 wordpress_docker_labels: "{{ docker_labels_common
                              | combine(wordpress_docker_labels_default)
