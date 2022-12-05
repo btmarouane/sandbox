@@ -11,7 +11,7 @@
 # Basics
 ################################
 
-wordpress_name: "{{ user.domain+'-wordpress' }}"
+wordpress_name: "{{ user.domain | replace('.','-')+'-wordpress' }}"
 
 ################################
 # Paths
