@@ -62,7 +62,7 @@ invoiceninjav5_nginx_traefik_enabled: true
 ################################
 
 # Container
-invoiceninjav5_docker_container: "{{ invoiceninjav5_name }}"
+invoiceninjav5_docker_container: "{{ user.domain+'-'+invoiceninjav5_name }}"
 
 # Image
 invoiceninjav5_docker_image_pull: true
