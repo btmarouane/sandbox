@@ -60,7 +60,7 @@ wordpress_traefik_enabled: true
 ################################
 
 # Container
-wordpress_docker_container: "{{ wordpress_name }}"
+wordpress_docker_container: "{{ user.domain+'-'+wordpress_name }}"
 
 # Image
 wordpress_docker_image_pull: true
