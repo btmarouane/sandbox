@@ -17,7 +17,7 @@ wordpress_name: "{{ user.domain | replace('.','-')+'-wordpress' }}"
 # Paths
 ################################
 
-wordpress_paths_folder: "{{ wordpress_name }}"
+wordpress_paths_folder: wordpress
 wordpress_paths_location: "{{ server_appdata_path }}/{{ wordpress_paths_folder }}"
 wordpress_paths_folders_list:
   - "{{ wordpress_paths_location }}"
