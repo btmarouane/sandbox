@@ -79,7 +79,7 @@ wordpress_docker_ports: "{{ wordpress_docker_ports_defaults
 # Envs
 wordpress_docker_envs_default:
   TZ: "{{ tz }}"
-  WORDPRESS_DB_HOST: "{{ user.domain | replace('.','-')+'-mariadb'+':3306' }}"
+  WORDPRESS_DB_HOST: "{{ user.domain | replace('.','-')+'-mariadb' }}"
   WORDPRESS_DB_USER: "root"
   WORDPRESS_DB_PASSWORD: "password321"
   WORDPRESS_DB_NAME: "{{ mariadb_db_name }}"
