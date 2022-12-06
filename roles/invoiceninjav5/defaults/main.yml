@@ -47,7 +47,7 @@ invoiceninjav5_nginx_dns_proxy: "{{ dns.proxied }}"
 # Mariadb
 ################################
 
-mariadb_db_name: "{{ user.domain|replace('.','') }}"
+mariadb_db_name: "{{ user.domain|replace('.com','') }}"
 
 ################################
 # Traefik
@@ -81,12 +81,12 @@ invoiceninjav5_docker_envs_default:
   REQUIRE_HTTPS: "true"
   DB_STRICT: "false"
   DB_TYPE: "mysql"
-  DB_HOST: "mariadb"
+  DB_HOST: "{{ user.domain | replace('.','-')+'-mariadb'+' }}"
   DB_USERNAME: "root"
   DB_PASSWORD: "password321"
   DB_DATABASE: "{{ mariadb_db_name }}"
   DB_PORT: "3306"
-  DB_HOST1: "mariadb"
+  DB_HOST1: "{{ user.domain | replace('.','-')+'-mariadb'+' }}"
   DB_USERNAME1: "root"
   DB_PASSWORD1: "password321"
   DB_DATABASE1: "{{ mariadb_db_name }}"
