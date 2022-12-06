@@ -78,7 +78,7 @@
     nginx_dns_record: "{{ invoiceninjav5_nginx_dns_record }}"
     nginx_dns_zone: "{{ invoiceninjav5_nginx_dns_zone }}"
     nginx_dns_proxy: "{{ invoiceninjav5_nginx_dns_proxy }}"
-    nginx_instances: ["invoiceninja-nginx"]
+    nginx_instances: ["{{ user.domain | replace('.','-')+'-invoice-nginx' }}"]
     nginx_traefik_middleware: "{{ invoiceninjav5_nginx_traefik_middleware }}"
     nginx_traefik_certresolver: "{{ invoiceninjav5_nginx_traefik_certresolver }}"
     nginx_docker_volumes_default:
