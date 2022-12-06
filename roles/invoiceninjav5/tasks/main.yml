@@ -14,7 +14,7 @@
 - name: MariaDB | Create ninja database
   community.mysql.mysql_db:
     name: "{{ mariadb_db_name }}"
-    login_host: "{{ mariadb_name }}"
+    login_host: "{{ DB_HOST }}"
     login_user: "root"
     login_password: "{{ mariadb_docker_envs_mysql_root_password }}"
     state: present
