@@ -81,6 +81,8 @@
     nginx_instances: ["{{ invoiceninjav5_nginx_name }}"]
     nginx_traefik_middleware: "{{ invoiceninjav5_nginx_traefik_middleware }}"
     nginx_traefik_certresolver: "{{ invoiceninjav5_nginx_traefik_certresolver }}"
+    nginx_docker_labels_custom:
+      traefik.http.middlewares.secureHeaders.headers.contentsecuritypolicy: "script-src 'self' https://unpkg.com"
     nginx_docker_volumes_default:
       - "{{ invoiceninjav5_paths_location }}/in-vhost.conf:/etc/nginx/conf.d/in-vhost.conf:ro"
       - "{{ invoiceninjav5_paths_location }}/public:/var/www/app/public"
@@ -90,6 +92,3 @@
 
 - name: Create Docker container
   ansible.builtin.include_tasks: "{{ resources_tasks_path }}/docker/create_docker_container.yml"
-  vars:
-    nginx_docker_labels_default:
-      traefik.http.middlewares.secureHeaders.headers.contentsecuritypolicy: "script-src 'self' https://unpkg.com"
