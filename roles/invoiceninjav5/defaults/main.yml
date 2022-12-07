@@ -25,6 +25,14 @@ invoiceninjav5_paths_folders_list:
   - "{{ invoiceninjav5_paths_location }}/storage"
 
 ################################
+# Nginx
+################################
+
+invoiceninjav5_nginx_name: "{{ user.domain | replace('.','-')+'-invoice-nginx' }}"
+nginx_docker_labels_default:
+  traefik.http.middlewares.secureHeaders.headers.contentsecuritypolicy: "script-src 'self' https://unpkg.com"
+
+################################
 # Web
 ################################
 
@@ -133,8 +141,8 @@ invoiceninjav5_docker_hosts: "{{ docker_hosts_common
                                  | combine(invoiceninjav5_docker_hosts_custom) }}"
 
 # Labels
-invoiceninjav5_docker_labels_default:
-  traefik.http.middlewares.secureHeaders.headers.contentsecuritypolicy: "script-src 'self' https://unpkg.com"
+
+invoiceninjav5_docker_labels_default: {}
 invoiceninjav5_docker_labels_custom: {}
 invoiceninjav5_docker_labels: "{{ docker_labels_common
                                   | combine(invoiceninjav5_docker_labels_default)
