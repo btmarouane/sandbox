@@ -29,8 +29,6 @@ invoiceninjav5_paths_folders_list:
 ################################
 
 invoiceninjav5_nginx_name: "{{ user.domain | replace('.','-')+'-invoice-nginx' }}"
-nginx_docker_labels_default:
-  traefik.http.middlewares.secureHeaders.headers.contentsecuritypolicy: "script-src 'self' https://unpkg.com"
 
 ################################
 # Web
