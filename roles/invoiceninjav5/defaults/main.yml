@@ -134,7 +134,7 @@ invoiceninjav5_docker_hosts: "{{ docker_hosts_common
 
 # Labels
 invoiceninjav5_docker_labels_default:
-  traefik.http.middlewares.secureHeaders.headers.contentSecurityPolicy: "script-src 'self' https://unpkg.com"
+  traefik.http.middlewares.secureHeaders.headers.contentsecuritypolicy: "script-src 'self' https://unpkg.com"
 invoiceninjav5_docker_labels_custom: {}
 invoiceninjav5_docker_labels: "{{ docker_labels_common
                                   | combine(invoiceninjav5_docker_labels_default)
