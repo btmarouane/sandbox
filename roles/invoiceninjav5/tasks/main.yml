@@ -82,7 +82,7 @@
     nginx_traefik_middleware: "{{ invoiceninjav5_nginx_traefik_middleware }}"
     nginx_traefik_certresolver: "{{ invoiceninjav5_nginx_traefik_certresolver }}"
     nginx_docker_labels_custom:
-      traefik.http.middlewares.unpkg.headers.contentSecurityPolicy: "script-src 'self' https://unpkg.com;"
+      traefik.http.middlewares.unpkg.headers.contentSecurityPolicy: "script-src 'self' 'sha256-YNPXVTnq+9TglJW+Zjb+ooe+v0EjUySnyGob/QoS8Tk=';"
     nginx_docker_volumes_default:
       - "{{ invoiceninjav5_paths_location }}/in-vhost.conf:/etc/nginx/conf.d/in-vhost.conf:ro"
       - "{{ invoiceninjav5_paths_location }}/public:/var/www/app/public"
