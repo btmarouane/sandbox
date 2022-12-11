@@ -1,7 +1,7 @@
 ##########################################################################
 # Title:            Sandbox: Handbrake                                   #
 # Author(s):        Satz, kowalski                                       #
-# URL:              https://github.com/saltyorg/Sandbox                  #
+# URL:              https://github.com/jeremiahg7/Sandbox                  #
 # --                                                                     #
 ##########################################################################
 #                   GNU General Public License v3.0                      #
@@ -79,7 +79,7 @@ handbrake_docker_envs_default:
   TZ: "{{ tz }}"
   CLEAN_TMP_DIR: "1"
   ENABLE_CJK_FONT: "1"
-  VNC_PASSWORD: "{{ handbrake.handbrake_pass | default('saltbox', true) }}"
+  VNC_PASSWORD: "{{ handbrake.handbrake_pass | default('bizbox', true) }}"
 handbrake_docker_envs_custom: {}
 handbrake_docker_envs: "{{ handbrake_docker_envs_default
                            | combine(handbrake_docker_envs_custom) }}"

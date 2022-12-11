@@ -1,7 +1,7 @@
 #########################################################################
 # Title:         Sandbox: Plex Autoscan Role                            #
 # Author(s):     l3uddz, desimaniac                                     #
-# URL:           https://github.com/saltyorg/Sandbox                    #
+# URL:           https://github.com/jeremiahg7/Sandbox                    #
 # --                                                                    #
 #########################################################################
 #                   GNU General Public License v3.0                     #
@@ -39,7 +39,7 @@
 
 - name: Clone plex_autoscan repo 'master'
   ansible.builtin.git:
-    repo: https://github.com/saltyorg/l3uddz/plex_autoscan.git
+    repo: https://github.com/jeremiahg7/l3uddz/plex_autoscan.git
     dest: /opt/plex_autoscan
     clone: true
     version: master

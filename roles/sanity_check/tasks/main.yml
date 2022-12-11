@@ -1,13 +1,13 @@
 #########################################################################
 # Title:         Sandbox: Sanity Check                                  #
 # Author(s):     desimaniac, salty                                      #
-# URL:           https://github.com/saltyorg/Sandbox                    #
+# URL:           https://github.com/jeremiahg7/Sandbox                    #
 # --                                                                    #
 #########################################################################
 #                   GNU General Public License v3.0                     #
 #########################################################################
 ---
-- name: "Saltbox Check"
+- name: "Bizbox Check"
   ansible.builtin.import_tasks: "subtasks/saltbox_check.yml"
   tags: always
 

@@ -2,10 +2,10 @@
 - hosts: localhost
   vars_files:
     - ['settings.yml', 'defaults/settings.yml.default']
-    - ['/srv/git/saltbox/accounts.yml', '/srv/git/saltbox/defaults/accounts.yml.default']
-    - ['/srv/git/saltbox/settings.yml', '/srv/git/saltbox/defaults/settings.yml.default']
-    - ['/srv/git/saltbox/adv_settings.yml', '/srv/git/saltbox/defaults/adv_settings.yml.default']
-    - ['/srv/git/saltbox/providers.yml', '/srv/git/saltbox/defaults/providers.yml.default']
+    - ['/srv/git/bizbox/accounts.yml', '/srv/git/bizbox/defaults/accounts.yml.default']
+    - ['/srv/git/bizbox/settings.yml', '/srv/git/bizbox/defaults/settings.yml.default']
+    - ['/srv/git/bizbox/adv_settings.yml', '/srv/git/bizbox/defaults/adv_settings.yml.default']
+    - ['/srv/git/bizbox/providers.yml', '/srv/git/bizbox/defaults/providers.yml.default']
   roles:
     # Reqs
     - { role: settings, tags: ['settings'] }

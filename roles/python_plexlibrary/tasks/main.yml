@@ -1,7 +1,7 @@
 #########################################################################
 # Title:         Sandbox: Python-PlexLibrary Role                       #
 # Author(s):     desimaniac, salty                                      #
-# URL:           https://github.com/saltyorg/Sandbox                    #
+# URL:           https://github.com/jeremiahg7/Sandbox                    #
 # --                                                                    #
 #########################################################################
 #                   GNU General Public License v3.0                     #
@@ -111,7 +111,7 @@
 - name: "Copy example recipes to '/opt/python-plexlibrary' folder"
   ansible.builtin.copy:
     src: "{{ item }}"
-    dest: "/opt/python-plexlibrary/recipes/examples/saltbox/"
+    dest: "/opt/python-plexlibrary/recipes/examples/bizbox/"
     owner: "{{ user.name }}"
     group: "{{ user.name }}"
     mode: "0775"
@@ -144,7 +144,7 @@
     insertafter: EOF
     line: '{{ item }}'
   with_items:
-    - "recipes/examples/saltbox/*.yml"
+    - "recipes/examples/bizbox/*.yml"
     - "plexlibrary.sh"
     - "plexlibrary-cron-helper.sh"
     - "*.log"

@@ -1,15 +1,15 @@
 #########################################################################
 # Title:         Sandbox: Sanity Check | Backup Check                   #
 # Author(s):     desimaniac, salty                                      #
-# URL:           https://github.com/saltyorg/Sandbox                    #
+# URL:           https://github.com/jeremiahg7/Sandbox                    #
 # --                                                                    #
 #########################################################################
 #                   GNU General Public License v3.0                     #
 #########################################################################
 ---
-- name: "Check if 'backup.lock' is present in the 'saltbox' folder"
+- name: "Check if 'backup.lock' is present in the 'bizbox' folder"
   ansible.builtin.stat:
-    path: "/srv/git/saltbox/backup.lock"
+    path: "/srv/git/bizbox/backup.lock"
   register: backup_lock
 
 # Age in hours
@@ -21,7 +21,7 @@
 # Delete if older than 2 hours.
 - name: "Delete stale 'backup.lock'"
   ansible.builtin.file:
-    path: "/srv/git/saltbox/backup.lock"
+    path: "/srv/git/bizbox/backup.lock"
     state: absent
   when: (backup_lock.stat.exists) and (backup_lock_age | int >= 2)
 

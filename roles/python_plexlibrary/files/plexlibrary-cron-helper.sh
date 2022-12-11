@@ -2,7 +2,7 @@
 #########################################################################
 # Title:         Sandbox: Python-PlexLibrary Cron Helper Script         #
 # Author(s):     desimaniac                                             #
-# URL:           https://github.com/saltyorg/Sandbox                    #
+# URL:           https://github.com/jeremiahg7/Sandbox                    #
 # --                                                                    #
 #########################################################################
 #                   GNU General Public License v3.0                     #

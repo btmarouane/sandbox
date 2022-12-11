@@ -1,7 +1,7 @@
 #########################################################################
 # Title:            Sandbox: Koel                                       #
 # Author(s):        JigSawFr, salty                                     #
-# URL:              https://github.com/saltyorg/Sandbox                 #
+# URL:              https://github.com/jeremiahg7/Sandbox                 #
 # --                                                                    #
 #########################################################################
 #                   GNU General Public License v3.0                     #
@@ -16,7 +16,7 @@
   ansible.builtin.include_role:
     name: mariadb
   vars:
-    mariadb_name: "{{ koel_name }}_mariadb"  # Remove when instance support merged into Saltbox
+    mariadb_name: "{{ koel_name }}_mariadb"  # Remove when instance support merged into Bizbox
     mariadb_instances: ["{{ koel_name }}_mariadb"]
     mariadb_paths_folder: "{{ koel_name }}"
     mariadb_paths_location: "{{ server_appdata_path }}/{{ koel_paths_folder }}/db"

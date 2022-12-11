@@ -1,7 +1,7 @@
 #########################################################################
 # Title:            Sandbox: Duplicati                                  #
 # Author(s):        Derek Z, JigSawFr                                   #
-# URL:              https://github.com/saltyorg/Sandbox                 #
+# URL:              https://github.com/jeremiahg7/Sandbox                 #
 # URL:              https://github.com/linuxserver/docker-duplicati     #
 # --                                                                    #
 #########################################################################
@@ -109,8 +109,8 @@ duplicati_docker_commands: "{{ duplicati_docker_commands_default
 # Volumes
 duplicati_docker_volumes_default:
   - "{{ duplicati_paths_location }}:/config"
-  - "/opt:/saltbox/opt"
-  - "/srv/git/saltbox:/saltbox/saltbox"
+  - "/opt:/bizbox/opt"
+  - "/srv/git/bizbox:/bizbox/bizbox"
 duplicati_docker_volumes_custom: []
 duplicati_docker_volumes: "{{ duplicati_docker_volumes_default
                                + duplicati_docker_volumes_custom }}"

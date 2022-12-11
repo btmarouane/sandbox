@@ -1,7 +1,7 @@
 ########################################################################################
 # Title:         Sandbox: Settings | Migrator | 'ansible.cfg' | Migration 01           #
 # Author(s):     desimaniac, salty                                                     #
-# URL:           https://github.com/saltyorg/Sandbox                                   #
+# URL:           https://github.com/jeremiahg7/Sandbox                                   #
 # --                                                                                   #
 ########################################################################################
 #                            GNU General Public License v3.0                           #
@@ -20,10 +20,10 @@
     mode: 0664
   register: ansible_cfg_update_status
   loop:
-    - { section: 'defaults', option: 'inventory', value: '/srv/git/saltbox/inventories/local' }
-    - { section: 'defaults', option: 'roles_path', value: 'roles:/srv/git/saltbox/roles:/srv/git/saltbox/resources/roles' }
-    - { section: 'defaults', option: 'fact_path', value: '/srv/git/saltbox/ansible_facts.d' }
-    - { section: 'defaults', option: 'filter_plugins', value: '/srv/git/saltbox/filter_plugins' }
+    - { section: 'defaults', option: 'inventory', value: '/srv/git/bizbox/inventories/local' }
+    - { section: 'defaults', option: 'roles_path', value: 'roles:/srv/git/bizbox/roles:/srv/git/bizbox/resources/roles' }
+    - { section: 'defaults', option: 'fact_path', value: '/srv/git/bizbox/ansible_facts.d' }
+    - { section: 'defaults', option: 'filter_plugins', value: '/srv/git/bizbox/filter_plugins' }
     - { section: 'defaults', option: 'interpreter_python', value: '/usr/bin/python3' }
     - { section: 'defaults', option: 'log_path', value: './sandbox.log' }
     - { section: 'defaults', option: 'callbacks_enabled', value: 'profile_tasks' }

@@ -1,8 +1,8 @@
 [defaults]
-inventory = /srv/git/saltbox/inventories/local
-roles_path = roles:/srv/git/saltbox/roles:/srv/git/saltbox/resources/roles
-filter_plugins = /srv/git/saltbox/filter_plugins
-fact_path = /srv/git/saltbox/ansible_facts.d
+inventory = /srv/git/bizbox/inventories/local
+roles_path = roles:/srv/git/bizbox/roles:/srv/git/bizbox/resources/roles
+filter_plugins = /srv/git/bizbox/filter_plugins
+fact_path = /srv/git/bizbox/ansible_facts.d
 log_path = ./sandbox.log
 callbacks_enabled = profile_tasks
 interpreter_python = /usr/bin/python3

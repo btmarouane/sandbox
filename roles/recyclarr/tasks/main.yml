@@ -1,7 +1,7 @@
 ##########################################################################
 # Title:            Sandbox: Recyclarr                                   #
 # Author(s):        BeansIsFat                                           #
-# URL:              https://github.com/saltyorg/Sandbox                  #
+# URL:              https://github.com/jeremiahg7/Sandbox                  #
 # --                                                                     #
 ##########################################################################
 #                   GNU General Public License v3.0                      #
@@ -27,7 +27,7 @@
     volumes:
       - "{{ recyclarr_paths_location }}:/config"
     networks:
-      - name: saltbox
+      - name: bizbox
     purge_networks: yes
     auto_remove: yes
     state: started

@@ -4,7 +4,7 @@
     #########################################################################
     # Title:         Settings Updater Script                                #
     # Author(s):     l3uddz                                                 #
-    # URL:           https://github.com/saltyorg/Sandbox                    #
+    # URL:           https://github.com/jeremiahg7/Sandbox                    #
     # Description:   Adds variables to settings.yml.                        #
     # --                                                                    #
     #########################################################################

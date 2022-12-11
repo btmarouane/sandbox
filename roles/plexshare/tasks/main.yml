@@ -1,7 +1,7 @@
 #########################################################################
 # Title:            Sandbox: plexshare                                  #
 # Author(s):        JigSawFr                                            #
-# URL:              https://github.com/saltyorg/Sandbox                 #
+# URL:              https://github.com/jeremiahg7/Sandbox                 #
 # --                                                                    #
 #########################################################################
 #                   GNU General Public License v3.0                     #
@@ -17,7 +17,7 @@
   ansible.builtin.include_role:
     name: mariadb
   vars:
-    mariadb_name: "{{ plexshare_name }}_mariadb"  # Remove when instance support merged into Saltbox
+    mariadb_name: "{{ plexshare_name }}_mariadb"  # Remove when instance support merged into Bizbox
     mariadb_instances: ["{{ plexshare_name }}_mariadb"]
     mariadb_docker_image_tag: "latest"
     mariadb_paths_folder: "{{ plexshare_name }}"

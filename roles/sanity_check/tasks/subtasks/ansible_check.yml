@@ -1,7 +1,7 @@
 #########################################################################
 # Title:         Sandbox: Sanity Check | Ansible Version                #
 # Author(s):     salty                                                  #
-# URL:           https://github.com/saltyorg/Sandbox                    #
+# URL:           https://github.com/jeremiahg7/Sandbox                    #
 # --                                                                    #
 #########################################################################
 #                   GNU General Public License v3.0                     #
@@ -24,7 +24,7 @@
 
 - name: Upgrade Ansible
   ansible.builtin.script:
-    cmd: /srv/git/saltbox/scripts/update.sh
+    cmd: /srv/git/bizbox/scripts/update.sh
   become: true
   become_user: root
   when: ansible_update

@@ -1,7 +1,7 @@
 #########################################################################
 # Title:         Sandbox: Settings | Start                              #
 # Author(s):     desimaniac, salty                                      #
-# URL:           https://github.com/saltyorg/Sandbox                    #
+# URL:           https://github.com/jeremiahg7/Sandbox                    #
 # --                                                                    #
 #########################################################################
 #                   GNU General Public License v3.0                     #
@@ -30,7 +30,7 @@
                           else '0.0.0' }}"
 
 - name: Import Default yyq variables
-  ansible.builtin.include_vars: /srv/git/saltbox/roles/yyq/defaults/main.yml
+  ansible.builtin.include_vars: /srv/git/bizbox/roles/yyq/defaults/main.yml
 
 - name: "Start | Install yyq"
   ansible.builtin.include_role:

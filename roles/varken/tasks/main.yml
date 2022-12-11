@@ -1,7 +1,7 @@
 #########################################################################
 # Title:            Sandbox: Varken Role                                #
 # Author(s):        desimaniac, salty                                   #
-# URL:              https://github.com/saltyorg/Sandbox                 #
+# URL:              https://github.com/jeremiahg7/Sandbox                 #
 # --                                                                    #
 #########################################################################
 #                   GNU General Public License v3.0                     #
@@ -73,12 +73,12 @@
     volumes:
       - "/opt/varken:/config"
     labels:
-      "com.github.saltbox.saltbox_managed": "true"
+      "com.github.bizbox.saltbox_managed": "true"
     networks:
-      - name: saltbox
+      - name: bizbox
         aliases:
           - varken
-    network_mode: "saltbox"
+    network_mode: "bizbox"
     networks_cli_compatible: true
     purge_networks: yes
     tls_hostname: localhost

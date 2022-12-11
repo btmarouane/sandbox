@@ -1,7 +1,7 @@
 #########################################################################
 # Title:            Sandbox: kcptun Server                              #
 # Author(s):        RXWatcher                                           #
-# URL:              https://github.com/saltyorg/Sandbox                 #
+# URL:              https://github.com/jeremiahg7/Sandbox                 #
 # --                                                                    #
 #########################################################################
 #                   GNU General Public License v3.0                     #
@@ -51,7 +51,7 @@
       - "/opt/kcptun-server/config:/config"
     command: "/bin/server -c /config/config.json"
     labels:
-      "com.github.saltbox.saltbox_managed": "true"
+      "com.github.bizbox.saltbox_managed": "true"
     user: "{{ uid }}:{{ gid }}"
     network_mode: host
     restart_policy: unless-stopped

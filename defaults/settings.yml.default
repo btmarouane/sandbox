@@ -30,7 +30,7 @@ goplaxt:
   trakt_id: ~
   trakt_secret: ~
 handbrake:
-  handbrake_pass: saltbox
+  handbrake_pass: bizbox
 invoiceninja:
   app_key: 'base64:O1S3kAJEDgo92gPkXtxfdCJpoGShgKloUSdcaHMXmoY='
 moviematch:

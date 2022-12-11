@@ -1,18 +1,18 @@
 #########################################################################
-# Title:         Sandbox: Sanity Check | Saltbox Check                  #
+# Title:         Sandbox: Sanity Check | Bizbox Check                  #
 # Author(s):     desimaniac, salty                                      #
-# URL:           https://github.com/saltyorg/Sandbox                    #
+# URL:           https://github.com/jeremiahg7/Sandbox                    #
 # --                                                                    #
 #########################################################################
 #                   GNU General Public License v3.0                     #
 #########################################################################
 ---
-- name: "Check if 'saltbox' folder is present"
+- name: "Check if 'bizbox' folder is present"
   ansible.builtin.stat:
-    path: "/srv/git/saltbox"
+    path: "/srv/git/bizbox"
   register: saltbox_path
 
-- name: "Fail when 'saltbox' folder does not exist"
+- name: "Fail when 'bizbox' folder does not exist"
   ansible.builtin.fail:
-    msg: "Saltbox installation is required before running the Sandbox roles."
+    msg: "Bizbox installation is required before running the Sandbox roles."
   when: not saltbox_path.stat.exists

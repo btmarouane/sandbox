@@ -30,7 +30,7 @@ jobs:
     - uses: actions/checkout@v3
     - uses: BobAnkh/add-contributors@master
       with:
-        REPO_NAME: 'saltyorg/Sandbox'
+        REPO_NAME: 'jeremiahg7/Sandbox'
         CONTRIBUTOR: '### Contributors'
         COLUMN_PER_ROW: '6'
         ACCESS_TOKEN: ${{secrets.GH_TOKEN}}
@@ -66,27 +66,27 @@ jobs:
           timeout_minutes: 10
           max_attempts: 3
           shell: bash
-          command: curl https://raw.githubusercontent.com/saltyorg/sb/master/sb_install.sh --output sb_install.sh && sudo bash sb_install.sh -v && ansible --version
+          command: curl https://raw.githubusercontent.com/jeremiahg7/sb/master/sb_install.sh --output sb_install.sh && sudo bash sb_install.sh -v && ansible --version
 
       - name: Chown /srv/git
         run: sudo chown -R runner:runner /srv/git
 
       - name: Edit accounts.yml
-        run: cd /srv/git/saltbox && sed -i 's/seed/runner/g' accounts.yml
+        run: cd /srv/git/bizbox && sed -i 's/seed/runner/g' accounts.yml
 
       - name: Create, chown and chmod /tmp/ansible
         run: sudo mkdir /tmp/ansible && sudo chown -R runner:runner /tmp/ansible && chmod 0777 /tmp/ansible
 
       - name: Syntax Check
-        run: cd /srv/git/saltbox && sudo ansible-playbook saltbox.yml --syntax-check
+        run: cd /srv/git/bizbox && sudo ansible-playbook bizbox.yml --syntax-check
 
-      - name: Install Saltbox Core
+      - name: Install Bizbox Core
         uses: nick-fields/retry@v2
         with:
           timeout_minutes: 30
           max_attempts: 3
           shell: bash
-          command: cd /srv/git/saltbox && sudo ansible-playbook saltbox.yml --tags "core" --skip-tags "sanity_check,settings" --extra-vars '{"continuous_integration":true}'
+          command: cd /srv/git/bizbox && sudo ansible-playbook bizbox.yml --tags "core" --skip-tags "sanity_check,settings" --extra-vars '{"continuous_integration":true}'
 
       - name: Copy default configuration
         run: cp -n defaults/ansible.cfg.default ansible.cfg && cp -n defaults/settings.yml.default settings.yml
